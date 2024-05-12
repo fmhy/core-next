@@ -1,0 +1,8 @@
+name: "Links page"
+description: "description"
+
+links:
+  - item:
+      link: "https://google.com"
+  - googl:
+      link: "https://google.com"
