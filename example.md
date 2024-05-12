@@ -1,5 +1,5 @@
 <script setup>
-import {data} from "./example/example.data.ts"
+import {data} from "./example.data.ts"
 </script>
 
 <pre>{{ data }}</pre>

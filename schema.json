@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "FMHY",
+  "description": "links schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The page name, to be used in VitePress"
+    },
+    "description": {
+      "type": "string",
+      "description": "The page description, to be used in VitePress"
+    },
+    "sections": {
+      "type": "object",
+      "description": "The sections headings",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "link": {
+              "type": "string",
+              "pattern": "^(https?|ftp):\\/\\/[\\w\\d\\-_]+(\\.[\\w\\d\\-_]+)+([\\w\\d\\-\\.,@?^=%&:/~\\+#]*[\\w\\d\\-@?^=%&/~\\+#])?$",
+              "format": "uri",
+              "qt-uri-protocols": [
+                "https"
+              ]
+            },
+            "metadata": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "starred",
+                  "oss"
+                ]
+              }
+            }
+          },
+          "required": [
+            "link"
+          ]
+        }
+      }
+    }
+  },
+  "required": [
+    "name",
+    "description",
+    "sections"
+  ]
+}

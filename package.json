@@ -5,10 +5,13 @@
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
-    "@types/node": "^20.12.11",
     "confbox": "^0.1.7",
+    "js-yaml": "^4.1.0",
     "vitepress": "^1.1.4",
-    "vue": "^3.4.27",
-    "yaml": "^2.4.2"
+    "vue": "^3.4.27"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.12.11"
   }
 }
