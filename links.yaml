@@ -1,8 +1,11 @@
 name: "Links page"
 description: "description"
 
-links:
-  - item:
-      link: "https://google.com"
-  - googl:
-      link: "https://google.com"
+sections:
+  "Piracy Indexes":
+    - privateersclub:
+        link: "https://megathread.pages.dev"
+        metadata:
+          - "starred"
+    - ripped:
+        link: "https://ripped.guide"
