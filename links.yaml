@@ -1,14 +1,14 @@
 # yaml-language-server: $schema=./schema.json
 
-name: "Sites"
-description: "Site description..."
+title: "Site Title!!"
+description: Site description!!
 
 sections:
   "Piracy Indexes":
-    - privateersclub:
-      link: "https://megathread.pages.dev"
-      metadata: ["starred", "oss"]
-    - ripped:
-      link: "https://ripped.guide"
-    - meh:
-      link: "https://google.com"
+    - name: privateersclub
+      link: https://megathread.pages.dev
+      metadata: [starred, oss, android]
+    - name: ripped
+      link: https://ripped.guide
+    - name: meh
+      link: https://google.com

@@ -5,9 +5,9 @@
   "description": "links schema",
   "type": "object",
   "properties": {
-    "name": {
+    "title": {
       "type": "string",
-      "description": "The page name, to be used in VitePress"
+      "description": "The page title, to be used in VitePress"
     },
     "description": {
       "type": "string",
@@ -21,6 +21,9 @@
         "items": {
           "type": "object",
           "properties": {
+            "name": {
+              "type": "string"
+            },
             "link": {
               "type": "string",
               "pattern": "^(https?|ftp):\\/\\/[\\w\\d\\-_]+(\\.[\\w\\d\\-_]+)+([\\w\\d\\-\\.,@?^=%&:/~\\+#]*[\\w\\d\\-@?^=%&/~\\+#])?$",
@@ -31,16 +34,23 @@
             },
             "metadata": {
               "type": "array",
+              "description": "List of tags for adding metadata to links",
               "items": {
                 "type": "string",
                 "enum": [
                   "starred",
-                  "oss"
+                  "oss",
+                  "android",
+                  "ios",
+                  "linux",
+                  "windows",
+                  "macos"
                 ]
               }
             }
           },
           "required": [
+            "name",
             "link"
           ]
         }
@@ -48,7 +58,7 @@
     }
   },
   "required": [
-    "name",
+    "title",
     "description",
     "sections"
   ]
