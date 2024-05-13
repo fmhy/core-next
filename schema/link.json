@@ -1,0 +1,47 @@
+{
+  "$id": "./link.json",
+  "description": "Link schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of this link item",
+      "type": "string"
+    },
+    "link": {
+      "description": "Link of this link item",
+      "type": "string",
+      "pattern": "^(https?|ftp):\\/\\/[\\w\\d\\-_]+(\\.[\\w\\d\\-_]+)+([\\w\\d\\-\\.,@?^=%&:/~\\+#]*[\\w\\d\\-@?^=%&/~\\+#])?$",
+      "format": "uri",
+      "qt-uri-protocols": [
+        "https"
+      ]
+    },
+    "metadata": {
+      "type": "array",
+      "description": "List of tags for adding metadata to links",
+      "items": {
+        "type": "string",
+        "enum": [
+          "starred",
+          "foss",
+          "android",
+          "ios",
+          "linux",
+          "windows",
+          "macos"
+        ]
+      }
+    },
+    "links": {
+      "description": "Nested links, separated by commas",
+      "type": "array",
+      "items": {
+        "$ref": "./link.json"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "link"
+  ]
+}

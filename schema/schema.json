@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./schema.json",
+  "title": "FMHY",
+  "description": "Links (YAML schema)",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The page title, to be used in VitePress"
+    },
+    "description": {
+      "type": "string",
+      "description": "The page description, to be used in VitePress"
+    },
+    "sections": {
+      "type": "object",
+      "description": "The sections for this page, as h1 headings",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "description": "Metadata for this section",
+            "type": "object",
+            "properties": {
+              "container": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "description": "Message to show the user, in containers/admonitions (warnings, info)",
+                    "type": "string"
+                  },
+                  "type": {
+                    "description": "Admonition type",
+                    "type": "string",
+                    "enum": [
+                      "warning",
+                      "danger",
+                      "tip",
+                      "info"
+                    ]
+                  }
+                },
+                "required": [
+                  "message",
+                  "type"
+                ]
+              }
+            }
+          },
+          "links": {
+            "description": "Array of links",
+            "type": "array",
+            "items": {
+              "$ref": "./link.json"
+            }
+          }
+        },
+        "required": [
+          "links"
+        ]
+      }
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "sections"
+  ]
+}
