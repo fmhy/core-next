@@ -7,8 +7,8 @@ sections:
   "Piracy Indexes":
     meta:
       container:
-        message: "meow"
-        type: "tip"
+        message: meow
+        type: tip
     links:
       - name: privateersclub
         link: https://megathread.pages.dev
@@ -22,3 +22,11 @@ sections:
             link: https://fmhy.xyz
           - name: Old frontend
             link: https://old.fmhy.xyz
+    subsections:
+      meta:
+        container:
+          message: balls
+          type: tip
+      links:
+        - name: meow
+          link: https://meow.gaming

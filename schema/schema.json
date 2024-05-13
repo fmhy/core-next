@@ -15,50 +15,9 @@
     },
     "sections": {
       "type": "object",
-      "description": "The sections for this page, as h1 headings",
+      "description": "The sections for this page",
       "additionalProperties": {
-        "type": "object",
-        "properties": {
-          "meta": {
-            "description": "Metadata for this section",
-            "type": "object",
-            "properties": {
-              "container": {
-                "type": "object",
-                "properties": {
-                  "message": {
-                    "description": "Message to show the user, in containers/admonitions (warnings, info)",
-                    "type": "string"
-                  },
-                  "type": {
-                    "description": "Admonition type",
-                    "type": "string",
-                    "enum": [
-                      "warning",
-                      "danger",
-                      "tip",
-                      "info"
-                    ]
-                  }
-                },
-                "required": [
-                  "message",
-                  "type"
-                ]
-              }
-            }
-          },
-          "links": {
-            "description": "Array of links",
-            "type": "array",
-            "items": {
-              "$ref": "./link.json"
-            }
-          }
-        },
-        "required": [
-          "links"
-        ]
+        "$ref": "./section.json"
       }
     }
   },

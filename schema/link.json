@@ -1,5 +1,6 @@
 {
   "$id": "./link.json",
+  "title": "Links",
   "description": "Link schema",
   "type": "object",
   "properties": {
