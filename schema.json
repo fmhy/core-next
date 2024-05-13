@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.com/product.schema.json",
   "title": "FMHY",
-  "description": "links schema",
+  "description": "Links (YAML schema)",
   "type": "object",
   "properties": {
     "title": {
@@ -15,45 +15,126 @@
     },
     "sections": {
       "type": "object",
-      "description": "The sections headings",
+      "description": "The sections for this page",
       "additionalProperties": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "link": {
-              "type": "string",
-              "pattern": "^(https?|ftp):\\/\\/[\\w\\d\\-_]+(\\.[\\w\\d\\-_]+)+([\\w\\d\\-\\.,@?^=%&:/~\\+#]*[\\w\\d\\-@?^=%&/~\\+#])?$",
-              "format": "uri",
-              "qt-uri-protocols": [
-                "https"
-              ]
-            },
-            "metadata": {
-              "type": "array",
-              "description": "List of tags for adding metadata to links",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "starred",
-                  "oss",
-                  "android",
-                  "ios",
-                  "linux",
-                  "windows",
-                  "macos"
+        "type": "object",
+        "properties": {
+          "meta": {
+            "description": "Metadata for this section",
+            "type": "object",
+            "properties": {
+              "container": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "description": "Message to show the user, in containers/admonitions (warnings, info)",
+                    "type": "string"
+                  },
+                  "type": {
+                    "description": "Admonition type",
+                    "type": "string",
+                    "enum": [
+                      "warning",
+                      "danger",
+                      "tip",
+                      "info"
+                    ]
+                  }
+                },
+                "required": [
+                  "message",
+                  "type"
                 ]
               }
             }
           },
-          "required": [
-            "name",
-            "link"
-          ]
-        }
+          "links": {
+            "description": "Array of links",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "Name of this link item",
+                  "type": "string"
+                },
+                "link": {
+                  "description": "Link of this link item",
+                  "type": "string",
+                  "pattern": "^(https?|ftp):\\/\\/[\\w\\d\\-_]+(\\.[\\w\\d\\-_]+)+([\\w\\d\\-\\.,@?^=%&:/~\\+#]*[\\w\\d\\-@?^=%&/~\\+#])?$",
+                  "format": "uri",
+                  "qt-uri-protocols": [
+                    "https"
+                  ]
+                },
+                "metadata": {
+                  "type": "array",
+                  "description": "List of tags for adding metadata to links",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "starred",
+                      "oss",
+                      "android",
+                      "ios",
+                      "linux",
+                      "windows",
+                      "macos"
+                    ]
+                  }
+                },
+                "links": {
+                  "description": "Nested links, seperated by commas",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Name of this link item",
+                        "type": "string"
+                      },
+                      "link": {
+                        "description": "Link of this link item",
+                        "pattern": "^(https?|ftp):\\/\\/[\\w\\d\\-_]+(\\.[\\w\\d\\-_]+)+([\\w\\d\\-\\.,@?^=%&:/~\\+#]*[\\w\\d\\-@?^=%&/~\\+#])?$",
+                        "format": "uri",
+                        "qt-uri-protocols": [
+                          "https"
+                        ]
+                      },
+                      "metadata": {
+                        "type": "array",
+                        "description": "List of tags for adding metadata to links",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "starred",
+                            "oss",
+                            "android",
+                            "ios",
+                            "linux",
+                            "windows",
+                            "macos"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "link"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "link"
+              ]
+            }
+          }
+        },
+        "required": [
+          "links"
+        ]
       }
     }
   },
