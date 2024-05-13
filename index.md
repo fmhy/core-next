@@ -1,11 +1,14 @@
 <script setup>
-import {data} from "./example.data.ts"
+import {data} from "./yaml.data.ts"
+import Index from "./.vitepress/theme/components/Index.vue"
 </script>
 
-### {{ data.title }}
+<Index />
 
-{{ data.description }}
+---
 
-<!-- @content -->
+::: details Raw data
 
 <pre>{{ data }}</pre>
+
+:::
