@@ -12,7 +12,7 @@ sections:
     links:
       - name: privateersclub
         link: https://megathread.pages.dev
-        metadata: [starred, oss, android]
+        metadata: [starred, foss, android]
       - name: ripped
         link: https://ripped.guide
       - name: FMHY

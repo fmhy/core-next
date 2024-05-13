@@ -74,7 +74,7 @@
                     "type": "string",
                     "enum": [
                       "starred",
-                      "oss",
+                      "foss",
                       "android",
                       "ios",
                       "linux",
@@ -108,7 +108,7 @@
                           "type": "string",
                           "enum": [
                             "starred",
-                            "oss",
+                            "foss",
                             "android",
                             "ios",
                             "linux",
