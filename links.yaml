@@ -18,16 +18,22 @@ sections:
         description: sucks balls tbh
       - name: FMHY
         link: https://fmhy.net
-        links:
+        related:
           - name: "2"
             link: https://fmhy.xyz
+          - name: "3"
+            link: https://fskdjaosj.xyz
+        additional:
           - name: Old frontend
             link: https://old.fmhy.xyz
+          - name: New frontend
+            link: https://new.fmhy.xyz
     subsections:
-      meta:
-        container:
-          message: balls
-          type: tip
-      links:
-        - name: meow
-          link: https://meow.gaming
+      Balls:
+        meta:
+          container:
+            message: balls
+            type: tip
+        links:
+          - name: meow
+            link: https://meow.gaming

@@ -2,84 +2,39 @@
 > This is an experimental specification for FMHY, to replace our use on markdown.
 > This specification is largely unfinished, give feedback on discord in the `#site-development` channel.
 
-### Properties
+## Main Schema: schema.json
 
-- **title**:
+**Description:** The main schema defines the overall structure of the FMHY schema. It includes properties for the page title, description, and sections.
 
-  - Type: string
-  - Description: The page title, to be used in VitePress
+- **Properties:**
+  - **title:** The page title, to be used in VitePress
+  - **description:** The page description, to be used in VitePress
+  - **sections:** The sections for this page
+- **Required Fields:** title, description, sections
+- **Schema Location:** [schema.json](./schema/schema.json)
 
-- **description**:
+## Link Schema: link.json
 
-  - Type: string
-  - Description: The page description, to be used in VitePress
+**Description:** The link schema defines the structure for representing individual links. It includes properties such as name, link, description, metadata, related links, and additional links.
 
-- **sections**:
-  - Type: object
-  - Description: The sections for this page
+- **Properties:**
+  - **name:** Name of the link item
+  - **link:** Link of the link item
+  - **description:** Description for this link item (optional)
+  - **metadata:** List of tags for adding metadata to links
+  - **related:** Related links
+  - **additional:** Additional links
+- **Required Fields:** `name`, `link`
+- **Schema Location:** [link.json](./schema/link.json)
 
-#### Section Properties
+## Section Schema: section.json
 
-Each section within the `sections` object has the following properties:
+**Description:** The section schema defines the structure for representing sections within a page. It includes properties for metadata, links, and subsections.
 
-- **meta**:
-
-  - Description: Metadata for this section
-  - Properties:
-    - **container**:
-      - Type: object
-      - Properties:
-        - **message**:
-          - Type: string
-          - Description: Message to show the user, in containers/admonitions (warnings, info)
-        - **type**:
-          - Type: string
-          - Enum: [ "warning", "danger", "tip", "info" ]
-          - Description: Admonition type
-
-- **links**:
-  - Description: Array of links
-  - Type: array
-
-Each link within the `links` array has the following properties:
-
-- **name**:
-
-  - Type: string
-  - Description: Name of this link item
-
-- **link**:
-
-  - Type: string
-  - Description: Link of this link item
-  - Format: uri
-  - Pattern: `/^(https?|ftp):\/\/[\w\d\-_]+(\.[\w\d\-_]+)+([\w\d\-.,@?^=%&:/~\+#]\*[\w\d\-@?^=%&/~\+#])?$/`
-
-- **metadata**:
-
-  - Type: array
-  - Description: List of tags for adding metadata to links
-  - Enum: [ "starred", "foss", "android", "ios", "linux", "windows", "macos" ]
-
-- **links**:
-  - Description: Nested links, separated by commas
-  - Type: array
-  - Properties:
-    - **name**:
-      - Type: string
-      - Description: Name of this link item
-    - **link**:
-      - Type: string
-      - Description: Link of this link item
-      - Format: uri
-      - Pattern: `/^(https?|ftp):\/\/[\w\d\-_]+(\.[\w\d\-_]+)+([\w\d\-.,@?^=%&:/~\+#]*[\w\d\-@?^=%&/~\+#])?$/`
-    - **metadata**:
-      - Type: array
-      - Description: List of tags for adding metadata to links
-      - Enum: [ "starred", "foss", "android", "ios", "linux", "windows", "macos" ]
-
-### Required Fields
-
-- title
-- description
-- sections
+- **Properties:**
+  - **meta:** Metadata for this section
+    - **container:** Message and type for displaying admonitions
+  - **links:** Array of links
+  - **subsections:** Subsections below this section, to be displayed in h2 headings
+- **Required Fields:** `links`
+- **Schema Location:** [section.json](./schema/section.json)

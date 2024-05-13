@@ -37,11 +37,80 @@
         ]
       }
     },
-    "links": {
-      "description": "Nested links, separated by commas",
+    "related": {
       "type": "array",
+      "description": "Related links",
       "items": {
-        "$ref": "./link.json"
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Name of this link item",
+            "type": "string"
+          },
+          "link": {
+            "description": "Link of this link item",
+            "type": "string",
+            "pattern": "^(https?|ftp):\\/\\/[\\w\\d\\-_]+(\\.[\\w\\d\\-_]+)+([\\w\\d\\-\\.,@?^=%&:/~\\+#]*[\\w\\d\\-@?^=%&/~\\+#])?$",
+            "format": "uri",
+            "qt-uri-protocols": [
+              "https"
+            ]
+          },
+          "metadata": {
+            "type": "array",
+            "description": "List of tags for adding metadata to links",
+            "items": {
+              "type": "string",
+              "enum": [
+                "starred",
+                "foss",
+                "android",
+                "ios",
+                "linux",
+                "windows",
+                "macos"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "additional": {
+      "type": "array",
+      "description": "Additional links",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Name of this link item",
+            "type": "string"
+          },
+          "link": {
+            "description": "Link of this link item",
+            "type": "string",
+            "pattern": "^(https?|ftp):\\/\\/[\\w\\d\\-_]+(\\.[\\w\\d\\-_]+)+([\\w\\d\\-\\.,@?^=%&:/~\\+#]*[\\w\\d\\-@?^=%&/~\\+#])?$",
+            "format": "uri",
+            "qt-uri-protocols": [
+              "https"
+            ]
+          },
+          "metadata": {
+            "type": "array",
+            "description": "List of tags for adding metadata to links",
+            "items": {
+              "type": "string",
+              "enum": [
+                "starred",
+                "foss",
+                "android",
+                "ios",
+                "linux",
+                "windows",
+                "macos"
+              ]
+            }
+          }
+        }
       }
     }
   },
