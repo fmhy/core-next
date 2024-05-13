@@ -53,7 +53,7 @@ Each link within the `links` array has the following properties:
   - Type: string
   - Description: Link of this link item
   - Format: uri
-  - Pattern: /^(https?|ftp):\/\/[\w\d\-_]+(\.[\w\d\-_]+)+([\w\d\-.,@?^=%&:/~\+#]\*[\w\d\-@?^=%&/~\+#])?$/
+  - Pattern: `/^(https?|ftp):\/\/[\w\d\-_]+(\.[\w\d\-_]+)+([\w\d\-.,@?^=%&:/~\+#]\*[\w\d\-@?^=%&/~\+#])?$/`
 
 - **metadata**:
 
