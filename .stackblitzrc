@@ -1,0 +1,3 @@
+{
+  "startCommand": "pnpm docs:dev"
+}
