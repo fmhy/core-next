@@ -15,6 +15,7 @@ sections:
         metadata: [starred, foss, android]
       - name: ripped
         link: https://ripped.guide
+        description: sucks balls tbh
       - name: FMHY
         link: https://fmhy.net
         links:

@@ -17,6 +17,10 @@
         "https"
       ]
     },
+    "description": {
+      "type": "string",
+      "description": "Description for this link item"
+    },
     "metadata": {
       "type": "array",
       "description": "List of tags for adding metadata to links",
