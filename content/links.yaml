@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../schema/schema.json
+
+title: Adblock
+description: Site description!!
+
+sections:
+  "Piracy Indexes":
+    meta:
+      container:
+        message: meow
+        type: tip
+    links:
+      - name: privateersclub
+        link: https://megathread.pages.dev
+        metadata: [starred, foss, android]
+      - name: ripped
+        link: https://ripped.guide
+        description: sucks balls tbh
+      - name: FMHY
+        link: https://fmhy.net
+        related:
+          - name: "2"
+            link: https://fmhy.xyz
+          - name: "3"
+            link: https://idk.xyz
+        additional:
+          - name: Old frontend
+            link: https://old.fmhy.xyz
+          - name: New frontend
+            link: https://new.fmhy.xyz
+    subsections:
+      Balls:
+        meta:
+          container:
+            message: balls
+            type: tip
+        links:
+          - name: meow
+            link: https://meow.gaming

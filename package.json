@@ -8,11 +8,13 @@
   "dependencies": {
     "confbox": "^0.1.7",
     "js-yaml": "^4.1.0",
+    "mdast-util-frontmatter": "^2.0.1",
+    "mdast-util-to-markdown": "^2.1.0",
     "vitepress": "^1.1.4",
     "vue": "^3.4.27"
   },
   "devDependencies": {
-    "@types/js-yaml": "^4.0.9",
+    "@types/mdast": "^4.0.4",
     "@types/node": "^20.12.11"
   }
 }
