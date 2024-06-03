@@ -3,13 +3,13 @@
  * Possible values are "starred", "foss", "android", "ios", "linux", "windows", "macos".
  */
 export type Metadata =
-  | "starred"
-  | "foss"
-  | "android"
-  | "ios"
-  | "linux"
-  | "windows"
-  | "macos";
+  | 'starred'
+  | 'foss'
+  | 'android'
+  | 'ios'
+  | 'linux'
+  | 'windows'
+  | 'macos';
 
 /**
  * Represents a link item.
@@ -24,9 +24,9 @@ export interface Link {
   /** List of metadata tags for the link. */
   metadata?: Metadata[];
   /** Related links associated with this link. */
-  related?: Omit<Link, "related" | "additional" | "description">[];
+  related?: Omit<Link, 'related' | 'additional' | 'description'>[];
   /** Additional links associated with this link. */
-  additional?: Omit<Link, "related" | "additional" | "description">[];
+  additional?: Omit<Link, 'related' | 'additional' | 'description'>[];
 }
 
 /**
@@ -40,7 +40,7 @@ export interface Section {
       /** Message to show the user. */
       message: string;
       /** Type of admonition. */
-      type: "warning" | "danger" | "tip" | "info";
+      type: 'warning' | 'danger' | 'tip' | 'info';
     };
   };
   /** Links within the section. */

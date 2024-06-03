@@ -1,19 +1,19 @@
-import { parseYAML } from "confbox";
-import { readFileSync } from "node:fs";
-import { defineLoader } from "vitepress";
+import { parseYAML } from 'confbox';
+import { readFileSync } from 'node:fs';
+import { defineLoader } from 'vitepress';
 
 /**
  * Represents the metadata tags associated with a link.
  * Possible values are "starred", "foss", "android", "ios", "linux", "windows", "macos".
  */
 type Metadata =
-  | "starred"
-  | "foss"
-  | "android"
-  | "ios"
-  | "linux"
-  | "windows"
-  | "macos";
+  | 'starred'
+  | 'foss'
+  | 'android'
+  | 'ios'
+  | 'linux'
+  | 'windows'
+  | 'macos';
 
 /**
  * Represents a link item.
@@ -28,9 +28,9 @@ interface Link {
   /** List of metadata tags for the link. */
   metadata?: Metadata[];
   /** Related links associated with this link. */
-  related?: Omit<Link, "related" | "additional" | "description">[];
+  related?: Omit<Link, 'related' | 'additional' | 'description'>[];
   /** Additional links associated with this link. */
-  additional?: Omit<Link, "related" | "additional" | "description">[];
+  additional?: Omit<Link, 'related' | 'additional' | 'description'>[];
 }
 
 /**
@@ -51,7 +51,7 @@ export interface Data {
           /** Message to show the user. */
           message: string;
           /** Type of admonition. */
-          type: "warning" | "danger" | "tip" | "info";
+          type: 'warning' | 'danger' | 'tip' | 'info';
         };
       };
       /** Links within the section. */
@@ -66,7 +66,7 @@ export interface Data {
               /** Message to show the user. */
               message: string;
               /** Type of admonition. */
-              type: "warning" | "danger" | "tip" | "info";
+              type: 'warning' | 'danger' | 'tip' | 'info';
             };
           };
           /** Links within the subsection. */
@@ -81,8 +81,8 @@ declare const data: Data;
 export { data };
 
 export default defineLoader({
-  watch: ["./links.yaml"],
+  watch: ['./links.yaml'],
   async load(watchedFiles): Promise<Data> {
-    return parseYAML<Data>(readFileSync(watchedFiles[0], "utf-8"));
-  },
+    return parseYAML<Data>(readFileSync(watchedFiles[0], 'utf-8'));
+  }
 });

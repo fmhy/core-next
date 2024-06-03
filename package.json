@@ -3,7 +3,11 @@
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview",
+    "format": "biome format . --write",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint . --apply",
+    "lint:fix:unsafe": "biome lint . --apply-unsafe"
   },
   "dependencies": {
     "confbox": "^0.1.7",
@@ -14,6 +18,8 @@
     "vue": "^3.4.27"
   },
   "devDependencies": {
+    "@taskylizard/biome-config": "^1.0.0",
+    "@biomejs/biome": "1.7.3",
     "@types/mdast": "^4.0.4",
     "@types/node": "^20.14.0"
   }

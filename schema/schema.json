@@ -21,9 +21,5 @@
       }
     }
   },
-  "required": [
-    "title",
-    "description",
-    "sections"
-  ]
+  "required": ["title", "description", "sections"]
 }

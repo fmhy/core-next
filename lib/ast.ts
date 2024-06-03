@@ -1,24 +1,24 @@
-import { Root, RootContent, ListItem } from "mdast";
-import { toMarkdown } from "mdast-util-to-markdown";
-import { frontmatterToMarkdown } from "mdast-util-frontmatter";
-import type { Page, Link, Section } from "./types";
+import { Root, RootContent, ListItem } from 'mdast';
+import { toMarkdown } from 'mdast-util-to-markdown';
+import { frontmatterToMarkdown } from 'mdast-util-frontmatter';
+import type { Page, Link, Section } from './types';
 
 // Function to convert links to markdown list items
 function linksToMarkdown(links: Link[]): ListItem[] {
   return links.map((link) => ({
-    type: "listItem",
+    type: 'listItem',
     children: [
       {
-        type: "paragraph",
+        type: 'paragraph',
         children: [
           {
-            type: "link",
+            type: 'link',
             url: link.link,
-            children: [{ type: "text", value: link.name }],
-          },
-        ],
-      },
-    ],
+            children: [{ type: 'text', value: link.name }]
+          }
+        ]
+      }
+    ]
   }));
 }
 
@@ -26,25 +26,38 @@ function linksToMarkdown(links: Link[]): ListItem[] {
 function sectionToMarkdown(section: Section): RootContent[] {
   const contents: RootContent[] = [];
 
+  // Add meta.container if exists
+  if (section.meta && section.meta.container) {
+    const container = {
+      type: 'paragraph',
+      children: [
+        { type: 'text', value: `:::${section.meta.container.type}\n` },
+        { type: 'text', value: section.meta.container.message },
+        { type: 'text', value: '\n:::' }
+      ]
+    };
+    contents.push(container);
+  }
+
   // Add links
   if (section.links) {
     contents.push({
-      type: "list",
+      type: 'list',
       ordered: false,
       spread: false,
-      children: linksToMarkdown(section.links),
+      children: linksToMarkdown(section.links)
     });
   }
 
   // Add subsections
   if (section.subsections) {
     for (const [subsectionTitle, subsection] of Object.entries(
-      section.subsections,
+      section.subsections
     )) {
       contents.push({
-        type: "heading",
+        type: 'heading',
         depth: 3,
-        children: [{ type: "text", value: subsectionTitle }],
+        children: [{ type: 'text', value: subsectionTitle }]
       });
       contents.push(...sectionToMarkdown(subsection));
     }
@@ -56,23 +69,23 @@ function sectionToMarkdown(section: Section): RootContent[] {
 // Function to generate Markdown from Page data
 export const generateMarkdown = (page: Page) => {
   const root: Root = {
-    type: "root",
+    type: 'root',
     children: [
       {
-        type: "yaml",
-        value: `title: ${page.title}\ndescription: ${page.description}`,
+        type: 'yaml',
+        value: `title: ${page.title}\ndescription: ${page.description}`
       },
       // @ts-expect-error FIXME: fix these type-errors
       ...Object.entries(page.sections).flatMap(([sectionTitle, section]) => [
         {
-          type: "heading",
+          type: 'heading',
           depth: 2,
-          children: [{ type: "text", value: sectionTitle }],
+          children: [{ type: 'text', value: sectionTitle }]
         },
-        ...sectionToMarkdown(section),
-      ]),
-    ],
+        ...sectionToMarkdown(section)
+      ])
+    ]
   };
 
-  return toMarkdown(root, { extensions: [frontmatterToMarkdown("yaml")] });
+  return toMarkdown(root, { extensions: [frontmatterToMarkdown('yaml')] });
 };

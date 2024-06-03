@@ -13,9 +13,7 @@
       "type": "string",
       "pattern": "^(https?|ftp):\\/\\/[\\w\\d\\-_]+(\\.[\\w\\d\\-_]+)+([\\w\\d\\-\\.,@?^=%&:/~\\+#]*[\\w\\d\\-@?^=%&/~\\+#])?$",
       "format": "uri",
-      "qt-uri-protocols": [
-        "https"
-      ]
+      "qt-uri-protocols": ["https"]
     },
     "description": {
       "type": "string",
@@ -52,9 +50,7 @@
             "type": "string",
             "pattern": "^(https?|ftp):\\/\\/[\\w\\d\\-_]+(\\.[\\w\\d\\-_]+)+([\\w\\d\\-\\.,@?^=%&:/~\\+#]*[\\w\\d\\-@?^=%&/~\\+#])?$",
             "format": "uri",
-            "qt-uri-protocols": [
-              "https"
-            ]
+            "qt-uri-protocols": ["https"]
           },
           "metadata": {
             "type": "array",
@@ -90,9 +86,7 @@
             "type": "string",
             "pattern": "^(https?|ftp):\\/\\/[\\w\\d\\-_]+(\\.[\\w\\d\\-_]+)+([\\w\\d\\-\\.,@?^=%&:/~\\+#]*[\\w\\d\\-@?^=%&/~\\+#])?$",
             "format": "uri",
-            "qt-uri-protocols": [
-              "https"
-            ]
+            "qt-uri-protocols": ["https"]
           },
           "metadata": {
             "type": "array",
@@ -114,8 +108,5 @@
       }
     }
   },
-  "required": [
-    "name",
-    "link"
-  ]
+  "required": ["name", "link"]
 }

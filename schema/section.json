@@ -18,18 +18,10 @@
             "type": {
               "description": "Admonition type",
               "type": "string",
-              "enum": [
-                "warning",
-                "danger",
-                "tip",
-                "info"
-              ]
+              "enum": ["warning", "danger", "tip", "info"]
             }
           },
-          "required": [
-            "message",
-            "type"
-          ]
+          "required": ["message", "type"]
         }
       }
     },
@@ -58,18 +50,10 @@
                 "type": {
                   "description": "Admonition type",
                   "type": "string",
-                  "enum": [
-                    "warning",
-                    "danger",
-                    "tip",
-                    "info"
-                  ]
+                  "enum": ["warning", "danger", "tip", "info"]
                 }
               },
-              "required": [
-                "message",
-                "type"
-              ]
+              "required": ["message", "type"]
             }
           }
         },
@@ -83,7 +67,5 @@
       }
     }
   },
-  "required": [
-    "links"
-  ]
+  "required": ["links"]
 }
