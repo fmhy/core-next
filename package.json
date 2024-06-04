@@ -14,13 +14,13 @@
     "js-yaml": "^4.1.0",
     "mdast-util-frontmatter": "^2.0.1",
     "mdast-util-to-markdown": "^2.1.0",
-    "vitepress": "^1.2.2",
+    "vitepress": "^1.2.3",
     "vue": "^3.4.27"
   },
   "devDependencies": {
-    "@taskylizard/biome-config": "^1.0.0",
     "@biomejs/biome": "1.7.3",
+    "@taskylizard/biome-config": "^1.0.0",
     "@types/mdast": "^4.0.4",
-    "@types/node": "^20.14.0"
+    "@types/node": "^20.14.1"
   }
 }
